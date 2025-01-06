@@ -29,7 +29,6 @@ return {
       "hrsh7th/cmp-path",
     },
     config = function()
-      -- See `:help cmp`
       local cmp = require("cmp")
       local luasnip = require("luasnip")
       luasnip.config.setup({})
@@ -39,11 +38,6 @@ return {
           expand = function(args) luasnip.lsp_expand(args.body) end,
         },
         completion = { completeopt = "menu,menuone,noinsert" },
-
-        -- For an understanding of why these mappings were
-        -- chosen, you will need to read `:help ins-completion`
-        --
-        -- No, but seriously. Please read `:help ins-completion`, it is really good!
         mapping = cmp.mapping.preset.insert({
           -- Select the [n]ext item
           ["<C-n>"] = cmp.mapping.select_next_item(),
@@ -72,11 +66,7 @@ return {
           --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
         }),
         sources = {
-          {
-            name = "lazydev",
-            -- set group index to 0 to skip loading LuaLS completions as lazydev recommends it
-            group_index = 0,
-          },
+          { name = "lazydev", group_index = 0 },
           { name = "nvim_lsp" },
           { name = "luasnip" },
           { name = "path" },
