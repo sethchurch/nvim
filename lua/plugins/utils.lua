@@ -27,7 +27,24 @@ return {
     lazy = false,
     ---@type snacks.Config
     opts = {
-      dashboard = { enabled = true },
+      dashboard = {
+        enabled = true,
+        sections = {
+          { section = "header", padding = 0 },
+          {
+            section = "terminal",
+            cmd = "pokemon-colorscripts -n infernape --no-title; sleep .2",
+            random = 10,
+            indent = 16,
+            width = 100,
+            height = 12,
+            padding = { 2, 0, 0, 0 },
+          },
+          { section = "startup", gap = 1, padding = 1 },
+          { section = "keys", gap = 1, padding = 1 },
+          { title = "Recent Files", section = "recent_files", padding = 1 },
+        },
+      },
       lazygit = { enabled = true },
       zen = { enabled = true },
       words = { enabled = false },

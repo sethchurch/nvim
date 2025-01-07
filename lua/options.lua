@@ -1,5 +1,6 @@
 local o = vim.opt
 
+o.mouse = ""
 o.number = true
 o.relativenumber = true
 
