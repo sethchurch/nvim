@@ -29,6 +29,13 @@ map("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 map("n", "<leader>ol", "<cmd>Lazy<cr>", { desc = "[O]pen Lazy" })
 map("n", "<leader>om", "<cmd>Mason<cr>", { desc = "[O]pen Mason" })
 
+-- Lint
+map("n", "<leader>cl", function()
+  -- @stylua ignore
+  vim.cmd("set makeprg=npx\\ eslint\\ -f\\ unix\\ --quiet\\ 'app/**/*.{js,ts,jsx,tsx}'")
+  vim.cmd("make")
+end, { desc = "Get Eslint Errors" })
+
 -- [[ Auto Commands ]]
 local autocmd = vim.api.nvim_create_autocmd
 
@@ -43,4 +50,11 @@ autocmd("TextYankPost", {
 autocmd("FileType", {
   pattern = "help",
   callback = function() vim.cmd("wincmd H") end,
+})
+
+-- Fix all Eslint Errors
+autocmd("BufWritePre", {
+  callback = function()
+    pcall(function() vim.cmd("EslintFixAll") end)
+  end,
 })

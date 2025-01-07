@@ -3,7 +3,7 @@ return {
     "folke/which-key.nvim",
     event = "VimEnter", -- Sets the loading event to 'VimEnter'
     opts = {
-      delay = 0,
+      delay = 500,
       icons = {
         mappings = vim.g.have_nerd_font,
         keys = vim.g.have_nerd_font and {} or {
@@ -44,6 +44,7 @@ return {
         { "<leader>o", group = "[O]pen" },
         { "<leader>d", group = "[D]ocument" },
         { "<leader>r", group = "[R]ename" },
+        { "<leader>g", group = "[G]it" },
         { "<leader>s", group = "[S]earch" },
         { "<leader>w", group = "[W]orkspace" },
         { "<leader>t", group = "[T]oggle" },
