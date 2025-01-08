@@ -25,6 +25,10 @@ map("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
 map("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 map("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
+-- Quickfix navigation
+map("n", "]q", "<cmd>cnext<cr>", { desc = "Next Item" })
+map("n", "[q", "<cmd>cprev<cr>", { desc = "Previous Item" })
+
 -- Open Lazy
 map("n", "<leader>ol", "<cmd>Lazy<cr>", { desc = "[O]pen Lazy" })
 map("n", "<leader>om", "<cmd>Mason<cr>", { desc = "[O]pen Mason" })
