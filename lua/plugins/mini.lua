@@ -7,6 +7,7 @@ return {
 
       -- Add/delete/replace surroundings (brackets, quotes, etc.)
       require("mini.surround").setup()
+      require("mini.pairs").setup()
 
       local statusline = require("mini.statusline")
       statusline.setup({ use_icons = vim.g.have_nerd_font })

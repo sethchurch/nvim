@@ -1,18 +1,16 @@
 -- LSP Plugins
 return {
+  { "folke/lazydev.nvim", ft = "lua", opts = { library = { { path = "luvit-meta/library", words = { "vim%.uv" } } } } },
+  { "Bilal2453/luvit-meta", lazy = true },
   {
     "pmizio/typescript-tools.nvim",
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-    opts = {
-      settings = {
-        tsserver_file_preferences = {
-          importModuleSpecifierPreference = "non-relative",
-        },
+    opts = { settings = {
+      tsserver_file_preferences = {
+        importModuleSpecifierPreference = "non-relative",
       },
-    },
+    } },
   },
-  { "folke/lazydev.nvim", ft = "lua", opts = { library = { { path = "luvit-meta/library", words = { "vim%.uv" } } } } },
-  { "Bilal2453/luvit-meta", lazy = true },
   {
     -- Main LSP Configuration
     "neovim/nvim-lspconfig",
@@ -77,6 +75,16 @@ return {
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
       local servers = {
+        eslint = {
+          settings = {
+            format = false,
+          },
+          flags = {
+            allow_incremental_sync = false,
+            debounce_text_changes = 1000,
+            exit_timeout = 1500,
+          },
+        },
         lua_ls = {
           settings = {
             Lua = {
@@ -90,7 +98,7 @@ return {
 
       require("mason").setup()
       local ensure_installed = vim.tbl_keys(servers or {})
-      vim.list_extend(ensure_installed, { "stylua", "eslint-lsp" })
+      vim.list_extend(ensure_installed, { "tailwindcss-language-server", "svelte-language-server", "stylua" })
       require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
       require("mason-lspconfig").setup({

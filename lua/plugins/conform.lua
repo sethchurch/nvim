@@ -7,7 +7,7 @@ return {
       {
         "<leader>f",
         function()
-          vim.cmd("EslintFixAll")
+          pcall(function() vim.cmd("EslintFixAll") end)
           require("conform").format({ async = true, lsp_format = "fallback" })
         end,
         mode = "",
@@ -41,6 +41,9 @@ return {
         jsonc = { "prettierd", "prettier", stop_after_first = true },
         json = { "prettierd", "prettier", stop_after_first = true },
         prisma = { "prisma-language-server", stop_after_first = true },
+        css = { "prettierd", "prettier", stop_after_first = true },
+        scss = { "prettierd", "prettier", stop_after_first = true },
+        sass = { "prettierd", "prettier", stop_after_first = true },
       },
     },
   },
