@@ -25,6 +25,9 @@ map("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
 map("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 map("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
+map("n", "<C-L>", "<cmd>vertical resize +20<cr>", { desc = "Increase Vertical Split Size" })
+map("n", "<C-H>", "<cmd>vertical resize -20<cr>", { desc = "Decrease Vertical Split Size" })
+
 -- Quickfix navigation
 map("n", "]q", "<cmd>cnext<cr>", { desc = "Next Item" })
 map("n", "[q", "<cmd>cprev<cr>", { desc = "Previous Item" })
