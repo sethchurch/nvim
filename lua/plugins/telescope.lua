@@ -1,5 +1,13 @@
 return {
   {
+    "piersolenski/telescope-import.nvim",
+    iependencies = "nvim-telescope/telescope.nvim",
+    config = function() require("telescope").load_extension("import") end,
+    keys = {
+      { "<leader>si", "<cmd>Telescope import<cr>", desc = "[S]earch [I]mports" },
+    },
+  },
+  {
     "nvim-telescope/telescope.nvim",
     event = "VimEnter",
     branch = "0.1.x",
