@@ -1,4 +1,4 @@
-_G.EnderVim = require("plugins.utils")
+_G.EnderVim = require("util")
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
