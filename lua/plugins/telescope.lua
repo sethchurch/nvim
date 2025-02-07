@@ -29,6 +29,21 @@ return {
             require("telescope.themes").get_dropdown(),
           },
         },
+        pickers = {
+          colorscheme = {
+            enable_preview = true,
+            layout_config = {
+              height = 0.4,
+              width = 0.2,
+            },
+          },
+        },
+        defaults = {
+          layout_strategy = "vertical",
+          layout_config = {
+            prompt_position = "bottom",
+          },
+        },
       })
 
       -- Enable Telescope extensions if they are installed
@@ -47,6 +62,7 @@ return {
       vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[D]iagnostics" })
       vim.keymap.set("n", "<leader>sR", builtin.resume, { desc = "[R]esume" })
       vim.keymap.set("n", "<leader>sr", builtin.oldfiles, { desc = '[R]ecent ("." for repeat)' })
+      vim.keymap.set("n", "<leader>sc", builtin.colorscheme, { desc = "[C]olorscheme" })
 
       vim.keymap.set(
         "n",
