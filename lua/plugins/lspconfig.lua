@@ -106,10 +106,11 @@ return {
 
       require("mason").setup()
       local ensure_installed = vim.tbl_keys(servers or {})
-      vim.list_extend(ensure_installed, { "tailwindcss-language-server", "stylua" })
+      vim.list_extend(ensure_installed, { "prettierd", "tailwindcss-language-server", "stylua" })
       require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
       require("mason-lspconfig").setup({
+        automatic_enable = true,
         ensure_installed = {},
         automatic_installation = {},
         handlers = {

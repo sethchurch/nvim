@@ -60,9 +60,9 @@ autocmd("FileType", {
 })
 
 -- Fix all Eslint Errors
-autocmd("BufWritePre", {
+autocmd("BufWritePost", {
   callback = function()
-    pcall(function() vim.cmd("EslintFixAll") end)
+    pcall(function() vim.cmd("LspEslintFixAll") end)
   end,
 })
 
